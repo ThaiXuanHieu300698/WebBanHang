@@ -1,0 +1,481 @@
+/* <trangchu> */
+body {
+    font-family: Tahoma, Geneva, sans-serif;
+}
+
+#header {
+    background: white;
+}
+
+.btn {
+    border-radius: 10px;
+    background: #ED0D8C;
+    color: white;
+}
+
+.account {
+    float: right;
+    margin-top: 5px;
+}
+
+#header .account .btn-jumpToLogin, .btn-logout {
+    text-decoration: none;
+    padding: 8px;
+}
+
+#header .container {
+    display: flex;
+    padding: 15px;
+    text-align: center;
+}
+
+    #header .container form {
+        display: inline-block;
+        margin-left: 50px;
+    }
+
+.txt {
+    border: 1px solid #ED0D8C;
+    border-radius: 15px;
+    height: 30px;
+    font-size: 17px;
+}
+
+#header .container .search-box {
+    width: 250px;
+    margin-top: 25px;
+}
+
+.txt:focus,
+button:focus {
+    outline: none;
+}
+
+#header .container button {
+    color: white;
+    background: #ED0D8C;
+    border: 0px;
+    border-radius: 10px;
+    font-size: 15px;
+    height: 32px;
+    width: 32px;
+    margin-top: 25px;
+    cursor: pointer;
+}
+
+.nav {
+    background: #ED0D8C;
+}
+
+    .nav .nav-item {
+        overflow: hidden;
+    }
+
+        .nav .nav-item .item {
+            float: left;
+            text-decoration: none;
+            font-size: 17px;
+            color: white;
+            padding: 10px 10px;
+            position: relative;
+        }
+
+            .nav .nav-item .item:hover {
+                background: palevioletred;
+            }
+
+    span#count-item {
+        position: absolute;
+        top: 4px;
+        right: 6px;
+        background: white;
+        color: #ED0D8C;
+        padding: 1px;
+    }
+
+#footer {
+    background: #ED0D8C;
+}
+
+    #footer .container {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+    }
+
+        #footer .container .col {
+            margin: 50px;
+            color: white;
+        }
+
+            #footer .container .col h3 {
+                text-align: center;
+            }
+
+        #footer .container .info a {
+            text-decoration: none;
+            color: white;
+        }
+
+        #footer .container .follow a {
+            text-decoration: none;
+            color: white;
+            font-size: 25px;
+        }
+
+.section .section-title {
+    text-align: center;
+    color: #ED0D8C;
+}
+
+.section .container {
+    display: flex;
+    justify-content: center;
+}
+
+    .section .container .product {
+        display: block;
+        text-align: center;
+        border: 1px solid #ED0D8C;
+        border-radius: 15px;
+        margin: 15px;
+    }
+
+        .section .container .product .product-info {
+            max-width: 250px;
+            margin: auto;
+            word-wrap: break-word;
+        }
+
+        .section .container .product:hover {
+            transform: scale(1.1);
+        }
+
+        .section .container .product img {
+            margin: 10px;
+        }
+
+.product .product-name {
+    text-decoration: none;
+    text-align: center;
+    color: #ED0D8C;
+}
+
+.section .btn-see-more {
+    display: block;
+    font-size: 20px;
+    border: none;
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+.product .price {
+    padding-bottom: 10px;
+}
+
+    .product .price del {
+        color: #999;
+    }
+
+@media only screen and (max-width: 600px) {
+    .section .container {
+        flex-direction: column;
+    }
+
+    #header .container {
+        flex-direction: column;
+    }
+
+    #footer .container {
+        flex-direction: column;
+    }
+}
+
+/* </trangchu> */
+
+/* <giohang> */
+
+.bar-top {
+    max-width: 700px;
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    margin: auto;
+    padding: 20px 0px;
+}
+
+    .bar-top .buymore {
+        text-decoration: none;
+        color: #ED0D8C;
+        float: left;
+    }
+
+.container-cart {
+    max-width: 700px;
+    margin: auto;
+    border: 1px solid #ED0D8C;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.12);
+}
+
+    .container-cart .cart-item {
+        border-radius: 15px;
+        border: 1px solid #ED0D8C;
+        margin: 10px;
+    }
+
+    .container-cart .product {
+        display: flex;
+        justify-content: center;
+    }
+
+    .container-cart .product-img {
+        padding: 15px;
+    }
+
+    .container-cart .product-info {
+        max-width: 260px;
+        margin: auto;
+        word-break: break-all;
+    }
+
+    .container-cart form {
+        text-align: center;
+    }
+
+#fullname,
+#phone {
+    width: 300px;
+}
+
+#address {
+    width: 610px;
+}
+
+.mode-pay {
+    text-align: center;
+    margin: 30px 0px;
+}
+
+.btn-mode-1,
+.btn-mode-2 {
+    border: none;
+    width: 300px;
+    font-size: 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 15px;
+    margin: 5px;
+}
+
+.btn:hover {
+    background: palevioletred;
+}
+
+@media only screen and (max-width: 600px) {
+    #address {
+        width: 300px;
+    }
+}
+
+/* </giohang> */
+
+/* <dangnhap> */
+
+.container .d-flex {
+    display: flex;
+    justify-content: center;
+}
+
+    .container .d-flex .col {
+        margin: 0px 20px;
+    }
+
+form .txt {
+    margin: 10px 0px;
+}
+
+.message-error {
+    color: red;
+}
+
+.btn-login,
+.btn-signup {
+    border: none;
+    font-size: 15px;
+    width: 100px;
+    cursor: pointer;
+    padding: 10px;
+    margin: 5px;
+}
+
+.link,
+.jumpToForgotPassword {
+    color: #ED0D8C;
+    text-decoration: none;
+}
+
+.policy {
+    margin: 10px 0px;
+}
+
+@media only screen and (max-width: 600px) {
+    .logo-big {
+        display: none;
+    }
+
+    .container .d-flex {
+        flex-direction: column;
+    }
+}
+
+/* </dangnhap> */
+
+/*<quenmatkhau>*/
+
+.btn-getPassword {
+    border: none;
+    font-size: 20px;
+    width: 150px;
+    cursor: pointer;
+    padding: 10px;
+    margin: 5px;
+}
+
+.container .box {
+    max-width: 700px;
+    background: white;
+    text-align: center;
+    padding: 30px;
+    margin: auto;
+}
+
+/*</quenmatkhau>*/
+
+
+/*<chitite>*/
+
+.breadcrumb {
+    display: block;
+    list-style: none;
+}
+
+    .breadcrumb li {
+        display: inline-block;
+    }
+
+        .breadcrumb li a {
+            text-decoration: none;
+            padding: 0px 10px 0px 0px;
+            color: #ED0D8C;
+        }
+
+        .breadcrumb li span {
+            display: inline-block;
+            color: #ED0D8C;
+        }
+
+.row-top {
+    padding-left: 50px;
+    display: inline-block;
+}
+
+    .row-top h1 {
+        float: left;
+        font-size: 24px;
+    }
+
+.rating-result {
+    float: left;
+    overflow: hidden;
+    padding: 10px 10px 0px 10px;
+}
+
+.star {
+    color: gold;
+}
+
+.product-detail .container {
+    display: flex;
+    justify-content: center;
+}
+
+    .product-detail .container .product-img {
+        margin-right: 100px;
+    }
+
+.price-sale .area-price {
+    margin-top: 50px;
+}
+
+    .price-sale .area-price strong {
+        color: red;
+        font-size: 24px;
+        margin-right: 10px;
+    }
+
+    .price-sale .area-price span {
+        font-size: 18px;
+        text-decoration: line-through;
+        color: #999;
+    }
+
+.price-sale .banner {
+    width: 620px;
+    margin: 30px 0px;
+}
+
+.btn-addtocart,
+.btn-buynow {
+    border: none;
+    width: 300px;
+    font-size: 18px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px;
+    margin: 5px;
+}
+
+.product-describe {
+    max-width: 93%;
+    margin: auto;
+}
+
+.review-comment {
+    max-width: 93%;
+    margin: auto;
+    padding-top: 10px;
+}
+
+    .review-comment .form-comment .form-group {
+        margin: 15px 0px;
+    }
+
+    .review-comment .form-comment input[type="text"] {
+        width: 100%;
+        font-size: 18px;
+        height: 30px;
+    }
+
+    .review-comment .form-comment textarea {
+        width: 100%;
+        font-size: 18px;
+    }
+
+.btn-comment {
+    font-size: 20px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    .product-detail .container {
+        flex-direction: column;
+    }
+}
+
+/*</chitite>*/

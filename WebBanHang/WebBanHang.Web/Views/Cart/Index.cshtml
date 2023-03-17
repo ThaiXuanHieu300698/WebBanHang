@@ -1,0 +1,77 @@
+﻿@using System.Globalization;
+@model List<WebBanHang.Data.ViewModels.CartViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="bar-top">
+    <a href="/" class="buymore">&#10094; Mua thêm sản phẩm khác</a>
+    <div class="yourcart" style="float: right;">Giỏ hàng của bạn</div>
+</div>
+
+@if (TempData["NotFoundMessage"] != null)
+{
+    <div style="text-align:center; color:red">
+        <span>@TempData["NotFoundMessage"]</span>
+    </div>
+}
+else
+{
+    <div class="container-cart">
+        @foreach (var item in Model)
+        {
+            var url = "/san-pham/" + @item.Product.MetaTitle;
+            <div class="cart-item">
+                <div class="product">
+                    <div class="col product-img">
+                        <a href="@url"><img src="~/Assets/img/products/@item.Product.ProductImage" alt="" width="200" height="200"></a>
+                        <div class="choosequantity" style="text-align: center;">
+                            <button onclick="changeQuantity(this)" class="decrement" data-id="@item.Product.ProductId" style="width:25px">-</button>
+                            <input class="quantity" type="text" value="@item.Quantity" data-id="@item.Product.ProductId" style="width:20px">
+                            <button onclick="changeQuantity(this)" class="increment" data-id="@item.Product.ProductId" style="width:25px">+</button>
+                        </div>
+                    </div>
+                    <div class="col product-info">
+                        <h3 class="product-name">@item.Product.ProductName</h3>
+                        <strong class="price">@String.Format(new CultureInfo("vi-VN"), "{0:#,##0.00}", item.Product.NewPrice)₫</strong>
+                        <ul class="promotion">
+                            <li>Khuyến mãi 1</li>
+                            <li>Khuyến mãi 2</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <a class="remove-product" href="/Cart/DeleteItem/@item.Product.ProductId"><i class="fa fa-trash" style="color: red; font-size: large;"></i></a>
+                </div>
+            </div>
+        }
+        <div class="total" style="padding: 0px 30px">
+            <b style="float: left;">Cần thanh toán:</b>
+            <strong style="float: right;">@String.Format(new CultureInfo("vi-VN"), "{0:#,##0.00}", ViewBag.Amount)₫</strong>
+        </div>
+        <br><br>
+        <hr class="hr" color="#ED0D8C">
+
+        <form action="/hoa-don" method="post">
+            <input type="radio" name="gender" value="Anh" checked> Anh
+            <input type="radio" name="gender" value="Chị"> Chị
+            <br><br>
+            <input type="text" name="fullname" id="fullname" class="txt txtFullName" placeholder="  Họ và Tên">
+            <input type="text" name="phone" id="phone" class="txt txtNumberPhone" placeholder="  Số điện thoại">
+            <br><br>
+            <input type="text" name="address" id="address" class="txt txtAddress" placeholder="  Địa chỉ giao hàng">
+
+            <div class="mode-pay">
+                <button type="submit" class="btn btn-mode-1">Thanh toán khi nhận hàng</button>
+                <button type="submit" class="btn btn-mode-2">Thanh toán online</button>
+            </div>
+        </form>
+    </div>
+
+}
+
+@section Scripts {
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Assets/js/main.js"></script>
+}

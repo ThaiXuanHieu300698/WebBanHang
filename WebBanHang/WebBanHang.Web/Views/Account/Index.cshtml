@@ -1,0 +1,71 @@
+﻿@model WebBanHang.Common.UserLoginModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="~/Assets/img/page/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="~/Assets/css/style.css" rel="stylesheet" />
+    <script src="~/Assets/js/main.js"></script>
+    <title>Web Bán Mỹ Phẩm</title>
+</head>
+
+<body>
+    <div class="header" style="text-align: center;">
+        <a href="/"><img class="logo" src="~/Assets/img/page/logo.png" alt="" height="80px"></a>
+    </div>
+    <div class="container" style="background: #F2F2F2;">
+        <div class="d-flex">
+            <div class="col">
+                <img class="logo-big" src="~/Assets/img/page/logo-big.png" alt="" width="600px" height="600px">
+            </div>
+            <div class="col">
+                <div class="form-login">
+                    <h3>Đăng nhập</h3>
+                    @using (Html.BeginForm("Login", "Account", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <input type="text" name="Username" class="txt txtUsername" placeholder="  Tài khoản" style="width:300px"><br>
+                        <input type="password" name="Password" class="txt txtPassword" placeholder="  Mật khẩu" style="width:300px"><br>
+                        <button type="submit" class="btn btn-login">Đăng nhập</button>
+                        <a href="/Account/ForgotPassword" class="link jumpToForgotPassword">Quên mật khẩu</a>
+                        <div class="message-error">
+                            @Html.ValidationSummary()
+                        </div>
+                    }
+                </div>
+                <hr>
+                <div class="form-signup">
+                    <h3>Tài khoản mới</h3>
+                    <form action="" method="post">
+                        <input type="text" name="" placeholder="  Tài khoản" class="txt txtUsername" style="width:300px"><br>
+                        <input type="text" name="" placeholder="  Số điện thoại" class="txt txtNumberPhone" style="width:300px"><br>
+                        <input type="password" name="" placeholder="  Mật khẩu" class="txt txtPassword " style="width:300px"><br>
+                        <input type="password" name="" placeholder="  Xác thực mật khẩu" class="txt txtPasswordAgain"
+                               style="width:300px"><br>
+                        <div class="policy">
+                            Bằng cách nhấp vào Đăng ký, bạn đồng ý với <a target="_blank" href="#"
+                                                                          class="link">
+                                Điều
+                                khoản
+                            </a>, <a target="_blank" href="#" class="link">
+                                Chính sách bảo
+                                mật
+                            </a> của chúng tôi.
+                        </div>
+                        <button type="submit" class="btn btn-signup">Đăng ký</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html> 

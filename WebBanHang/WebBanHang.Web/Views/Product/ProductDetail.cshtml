@@ -1,0 +1,148 @@
+﻿@using System.Globalization;
+@model WebBanHang.Data.DomainModels.Product
+@{
+    ViewBag.Title = "ProductDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul class="breadcrumb">
+    <li><a href="/"><i class="fa fa-home"></i> Trang chủ</a><span>&#10095;</span></li>
+    <li><a href="/danh-muc/@ViewBag.MetaTitle">@ViewBag.CategoryName</a><span>&#10095;</span></li>
+    <li><a href="#">@Model.ProductName</a></li>
+</ul>
+<div class="row-top">
+    <h1>@Model.ProductName</h1>
+    <div class="rating-result">
+        <span class="star"><i class="fa fa-star"></i></span>
+        <span class="star"><i class="fa fa-star"></i></span>
+        <span class="star"><i class="fa fa-star"></i></span>
+        <span class="star"><i class="fa fa-star"></i></span>
+        <span class="star"><i class="fa fa-star-half-o"></i></span>
+    </div>
+</div>
+<div class="product-detail">
+    <div class="container">
+        <div class="col product-img">
+            <img src="~/Assets/img/products/@Model.ProductImage" alt="" width="100%">
+        </div>
+        <div class="col price-sale">
+            <div class="area-price">
+                <strong>@String.Format(new CultureInfo("vi-VN"), "{0:#,##0.00}", Model.NewPrice)₫</strong>
+                <span>@String.Format(new CultureInfo("vi-VN"), "{0:#,##0.00}", Model.OldPrice)₫</span>
+            </div>
+            <ul class="promotion">
+                <li>Khuyến mãi 1</li>
+                <li>Khuyến mãi 2</li>
+            </ul>
+            <div class="banner">
+                <img src="~/Assets/img/page/banner.png" alt="" width="100%">
+            </div>
+
+            <div class="option-shiper" style="width: 620px; margin-bottom: 30px;">
+                <input type="checkbox" name="" id="">
+                <label for="">
+                    <b>Yêu cầu nhân viên giao hàng: </b>hỗ trỡ copy danh bạ, hướng dẫn sử dụng, giải đáp
+                    thắc mắc sản phẩm.
+                </label>
+            </div>
+
+            <a href="/Cart/AddToCart/@Model.ProductId" class="btn btn-addtocart">Thêm vào giỏ hàng</a>
+            <a href="" class="btn btn-buynow">Mua ngay</a>
+        </div>
+    </div>
+</div>
+<hr style="width: 95%;">
+<div class="product-describe">
+    <h2>Mô tả sản phẩm</h2>
+    <div class="content">
+        <strong style="color: #ED0D8C;">
+            Kem Chống Nắng Cân Bằng pH Rohto Skin Aqua Tone Up UV Essence SPF 50+ PA++++
+            70g
+        </strong>
+        <p><strong>Thương hiệu: </strong>Thượng hải</p>
+        <p><strong>Xuất xứ: </strong>Trung Quốc</p>
+        <p><strong>Dung lượng: </strong>70g</p>
+        <p><strong>Loại da: </strong>Phù hợp với mọi loại da.</p>
+        <strong style="color: #ED0D8C;">Công dụng: </strong>
+        <p>- Cung cấp dưỡng chất , độ ẩm cho da, giúp cho da săn chắc, mang lại làn da mịn màng và tinh tế.</p>
+        <p>- Có lớp BB giúp che đi khuyến điểm làm cho làn da sáng tông đều màu.</p>
+        <p>
+            - Tạo ra 1 lớp màng bảo vệ da khỏi tác động của ánh nắng mặt trời, ngăn chặn các sắc tố, ngăn ngừa lão
+            hóa cho da.
+        </p>
+        <strong style="color: #ED0D8C;">Hướng dẫn sử dụng : </strong>
+        <p>
+            - Rửa mặt sạch và dùng trước khi trang điểm để tự tin khi ra ngoài nhé. Nên bôi cả vùng da lộ ra ngoài
+            như cổ, tay, chân nữa.
+        </p>
+        <p>
+            - Nên dùng Rohto Skin Aqua Tone Up UV Essence SPF 50+ PA++++ 70g hằng ngày, và thoa lại mỗi 4h để đạt
+            hiệu quả chống nắng tối ưu nha.
+        </p>
+    </div>
+</div>
+
+<div class="review-comment">
+    <div class="title">
+        <h2>Đánh giá - Bình luận</h2>
+    </div>
+    <div class="review">
+        <table style="width: 100%; margin-bottom: 10px;">
+            <tbody>
+                <tr>
+                    <td style="width: 20%;">Thái Xuân Hiếu</td>
+                    <td>04/03/2020</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <p>Trên cả tuyệt vời bạn ơi</p>
+                        <span class="star"><i class="fa fa-star"></i></span>
+                        <span class="star"><i class="fa fa-star"></i></span>
+                        <span class="star"><i class="fa fa-star"></i></span>
+                        <span class="star"><i class="fa fa-star"></i></span>
+                        <span class="star"><i class="fa fa-star-half-o"></i></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table style="width: 100%; margin-bottom: 10px;">
+            <tbody>
+                <tr>
+                    <td style="width: 20%;">Thái Xuân Hiền</td>
+                    <td>04/03/2020</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <p>Hết sảy con bà bảy</p>
+                        <span class="star"><i class="fa fa-star"></i></span>
+                        <span class="star"><i class="fa fa-star"></i></span>
+                        <span class="star"><i class="fa fa-star"></i></span>
+                        <span class="star"><i class="fa fa-star"></i></span>
+                        <span class="star"><i class="fa fa-star"></i></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="form-comment">
+        <form action="" method="post">
+            <div class="form-group">
+                <label for="">Tên của bạn:</label><br>
+                <input type="text"><br>
+            </div>
+            <div class="form-group">
+                <label for="">Số điện thoại:</label><br>
+                <input type="text"><br>
+            </div>
+            <div class="form-group">
+                <label for="">Bình luận:</label><br>
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+            </div>
+        </form>
+        <button type="submit" class="btn btn-comment">Đồng ý</button>
+    </div>
+</div>
+
+<div class="product-related">
+
+</div>

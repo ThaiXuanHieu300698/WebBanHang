@@ -1,0 +1,103 @@
+﻿@{
+    var Categories = (List<WebBanHang.Data.DomainModels.Category>)ViewBag.Categories;
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="~/Assets/img/page/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/Assets/css/style.css" rel="stylesheet" />
+    <title>Web Bán Mỹ Phẩm</title>
+</head>
+
+<body>
+    <header id="header">
+        <div class="account">
+            <a href="#" id="account-info" style="text-decoration:none; color:#ED0D8C"></a>
+            <a href="/dang-nhap" class="btn btn-jumpToLogin">
+                Đăng nhập
+            </a>
+            @if (Session["FullName"] != null)
+            {
+                <script type="text/javascript">
+                    document.getElementsByClassName('btn-jumpToLogin')[0].classList.add('btn-logout');
+                    document.getElementsByClassName('btn-jumpToLogin')[0].classList.remove('btn-jumpToLogin');
+                    document.getElementsByClassName('btn-logout')[0].innerHTML = 'Đăng xuất';
+                    document.getElementsByClassName('btn-logout')[0].href = "/dang-xuat";
+                    document.getElementById('account-info').innerHTML = 'Xin chào: @Session["FullName"] | ';
+                </script>
+            }
+        </div>
+        <div class="container">
+            <a href="/"><img class="logo" src="~/Assets/img/page/logo.png" alt="" height="80px"></a>
+            <form action="/Home/SearchProduct" method="POST">
+                <input type="text" name="" id="" placeholder="  Tìm kiếm..." class="search-box txt">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+    </header>
+    <div class="nav">
+        <div class="nav-item">
+            <a href="/" class="item"><i class="fa fa-home"></i> TRANG CHỦ</a>
+            @* <a href="/Home/MyPham" class="item">MỸ PHẨM TRUNG QUỐC</a>
+                <a href="/Home/TrangDiem" class="item">TRANG ĐIỂM</a>
+                <a href="/Home/DuongDa" class="item">DƯỠNG DA</a>
+                <a href="/Home/BoSanPham" class="item">BỘ SẢN PHẨM</a>
+                <a href="/Home/NuocHoa" class="item">NƯỚC HOA</a>*@
+            @foreach (var item in Categories)
+            {
+                var url = "/danh-muc/" + item.MetaTitle;
+                <a href="@url" class="item">@item.CategoryName.ToUpper()</a>
+            }
+            <a href="/gio-hang" class="item" style="float: right; padding-right: 30px">
+                <i class="fa fa-shopping-cart"></i> GIỎ HÀNG
+                @if (Session["YourCart"] == null)
+                {
+                    <span id="count-item">0</span>
+                }
+                else
+                {
+                    <span id="count-item">@ViewBag.CountItem</span>
+                }
+            </a>
+        </div>
+    </div>
+    @RenderBody()
+    <footer id="footer">
+        <div class="container">
+            <div class="info col">
+                <h3 class="title-col">THÔNG TIN CHUNG</h3>
+                <ul>
+                    <li><a href="/ve-chung-toi">Về chúng tôi</a></li>
+                    <li><a href="/chinh-sach">Chính sách vận chuyển</a></li>
+                    <li><a href="/chinh-sach">Chính sách trả hàng</a></li>
+                    <li><a href="/chinh-sach">Chính sách riêng tư</a></li>
+                </ul>
+            </div>
+            <div class="customer-care col">
+                <h3 class="title-col">LIÊN HỆ</h3>
+                <ul>
+                    <li>Điện thoại : 012345789</li>
+                    <li>Email : myphamtrungquoc@gmail.com</li>
+                </ul>
+            </div>
+            <div class="follow col">
+                <h3 class="title-col">KẾT NỐI VỚI CHÚNG TÔI</h3>
+                <ul>
+                    <li><a href=""><i class="fa fa-facebook-official"></i></a></li>
+                    <li><a href=""><i class="fa fa-youtube-play"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright" style="text-align: center; padding-bottom: 25px; color: white;">
+            © Bản quyền thuộc Nhóm 3 - Lập trình Web - GV : Lê Văn Thành
+        </div>
+    </footer>
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

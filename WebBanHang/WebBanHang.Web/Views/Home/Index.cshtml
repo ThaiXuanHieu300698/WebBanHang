@@ -1,0 +1,42 @@
+﻿@using System.Globalization;
+@{
+    var Categories = (List<WebBanHang.Data.DomainModels.Category>)ViewBag.Categories;
+    var Products = (List<WebBanHang.Data.DomainModels.Product>)ViewBag.Products;
+}
+
+@foreach (var category in Categories)
+{
+    <section class="section">
+        <div class="section-title">
+            <h2>@category.CategoryName.ToUpper()</h2>
+        </div>
+        <div class="container">
+            @foreach (var item in Products.Where(p => p.CategoryId == category.CategoryId))
+            {
+                var url = "/san-pham/" + @item.MetaTitle;
+                <div class="product">
+                    <a href="@url">
+                        <img src="~/Assets/img/products/@item.ProductImage" alt="" width="300" height="300">
+                    </a><br>
+                    <div class="product-info">
+                        <a href="@url" class="product-name">@item.ProductName</a>
+                        <div class="price">
+                            @if (item.NewPrice != null)
+                            {
+                                <strong>@String.Format(new CultureInfo("vi-VN"), "{0:#,##0.00}", item.NewPrice)₫</strong>
+                                <span><del>@String.Format(new CultureInfo("vi-VN"), "{0:#,##0.00}", item.OldPrice)₫</del></span>
+                            }
+                            else
+                            {
+                                <strong>@String.Format(new CultureInfo("vi-VN"), "{0:#,##0.00}", item.OldPrice)₫</strong>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div>
+            <button class="btn btn-see-more">XEM THÊM</button>
+        </div>
+    </section>
+}

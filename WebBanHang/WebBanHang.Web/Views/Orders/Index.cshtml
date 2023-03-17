@@ -1,0 +1,68 @@
+﻿@using System.Globalization;
+@model WebBanHang.Data.DomainModels.User
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var orderDetail = (List<WebBanHang.Data.ViewModels.CartViewModel>)ViewBag.OrderDetail;
+}
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    thead {
+        background-color: #ED0D8C;
+        color: white;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+    td img {
+        vertical-align: middle;
+    }
+</style>
+
+<div style="text-align: center; color:green; font-size: 20px; margin-top: 10px">Quý khách đã đặt hàng thành công</div>
+
+<h3>Thông tin đơn hàng:</h3>
+<div class="orders" style="padding-left: 50px">
+    <p>Họ và tên: @Model.FirstName @Model.LastName</p>
+    <p>Số điện thoại: @Model.PhoneNumber</p>
+    <p>Địa chỉ nhận hàng: @Model.Address</p>
+    <p>Tổng tiền: @String.Format(new CultureInfo("vi-VN"), "{0:#,##0.00}", ViewBag.Amount)₫</p>
+</div>
+<h3>Chi tiết đơn hàng:</h3>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Tên sản phẩm</th>
+                <th>Đơn giá</th>
+                <th>Số lượng</th>
+                <th>Thành tiền</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in orderDetail)
+            {
+                <tr>
+                    <td>
+                        <img src="~/UploadImage/@item.Product.ProductImage" style="width:50px; height:50px" />
+                        @item.Product.ProductName
+                    </td>
+                    <td>@item.Product.NewPrice</td>
+                    <td>@item.Quantity</td>
+                    <td>@String.Format(new CultureInfo("vi-VN"), "{0:#,##0.00}", (item.Quantity * @item.Product.NewPrice))₫</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div style="float: right; color: red; font-size: 20px; margin-top: 10px">Tổng tiền: @String.Format(new CultureInfo("vi-VN"), "{0:#,##0.00}", ViewBag.Amount)₫</div>
+</div>
+

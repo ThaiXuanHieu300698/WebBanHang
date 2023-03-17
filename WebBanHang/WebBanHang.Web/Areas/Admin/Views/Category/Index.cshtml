@@ -1,0 +1,109 @@
+﻿@model IEnumerable<WebBanHang.Data.DomainModels.Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var stt = 1;
+}
+
+<script>
+    function Edit(categoryName, description, id) {
+        document.getElementById("txtCategoryName").value = categoryName;
+        document.getElementById("txtDescription").value = description;
+        document.getElementById("frmCategory").action = "/Admin/Category/EditHandle";
+        var action = document.createElement("input");
+        action.setAttribute("type", "hidden");
+        action.setAttribute("name", "CategoryId");
+        document.getElementById("frmCategory").appendChild(action);
+        document.getElementsByName("CategoryId")[0].setAttribute("value", id);
+    }
+</script>
+
+<h2>Quản lý danh mục</h2>
+
+<div class="container-fluid" style="padding:10px">
+    <div>
+        <form action="/Admin/Category/CreateHandle" method="post" id="frmCategory">
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <label>Tên danh mục:</label>
+                <input type="text" name="CategoryName" class="form-control" id="txtCategoryName" />
+            </div>
+            <div class="form-group">
+                <label>Mô tả:</label>
+                <input type="text" name="Description" class="form-control" id="txtDescription" />
+            </div>
+
+            <input type="submit" value="Lưu" class="btn btn-success" />
+        </form>
+    </div>
+
+    <div style="width:400px; margin:20px 0px 20px 0px">
+        <form action="/Admin/Category/Search" method="get">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Nhập tên danh mục" name="searchString">
+                <div class="input-group-btn">
+                    <button class="btn btn-info" type="submit" style="border-radius: 0px 4px 4px 0px">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th><label><input type="checkbox" /> Chọn</label></th>
+                    <th>STT</th>
+                    <th>Tên danh mục</th>
+                    <th>Mô tả</th>
+                    <th>Chức năng</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td><input type="checkbox" /></td>
+                        <td>@stt</td>
+                        <td>@item.CategoryName</td>
+                        <td>@item.Description</td>
+                        <td>
+                            <a href="#" class="btn btn-warning" onclick='Edit("@item.CategoryName", "@item.Description", @item.CategoryId)'><i class="fas fa-edit"></i></a>
+                            <a href="#delete-modal-@item.CategoryId" data-toggle="modal" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                        </td>
+                    </tr>
+                    stt += 1;
+                    <!-- Modal -->
+                    <div class="modal fade" id="delete-modal-@item.CategoryId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Xóa sản phẩm @item.CategoryName ?
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="/Admin/Category/Delete/@item.CategoryId" class="btn btn-primary">Đồng ý</a>
+                                    <a href="#" type="button" class="btn btn-secondary" data-dismiss="modal">Hủy bỏ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </tbody>
+        </table>
+        @if (TempData["NotFoundMessage"] != null)
+        {
+            <div class="alert text-center">
+                <span class="text-danger">@TempData["NotFoundMessage"]</span>
+            </div>
+        }
+    </div>
+
+</div>

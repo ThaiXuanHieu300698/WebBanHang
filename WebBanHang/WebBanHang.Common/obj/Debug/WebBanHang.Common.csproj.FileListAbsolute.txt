@@ -1,0 +1,12 @@
+F:\Web\BaiTapNhom3\WebBanHang\WebBanHang.Common\bin\Debug\WebBanHang.Common.dll
+F:\Web\BaiTapNhom3\WebBanHang\WebBanHang.Common\bin\Debug\WebBanHang.Common.pdb
+F:\Web\BaiTapNhom3\WebBanHang\WebBanHang.Common\obj\Debug\WebBanHang.Common.csproj.CoreCompileInputs.cache
+F:\Web\BaiTapNhom3\WebBanHang\WebBanHang.Common\obj\Debug\WebBanHang.Common.dll
+F:\Web\BaiTapNhom3\WebBanHang\WebBanHang.Common\obj\Debug\WebBanHang.Common.pdb
+F:\Web\BaiTapNhom3\WebBanHang\WebBanHang.Common\obj\Debug\WebBanHang.Common.csprojAssemblyReference.cache
+F:\WebBanHang\WebBanHang\WebBanHang.Common\bin\Debug\WebBanHang.Common.dll
+F:\WebBanHang\WebBanHang\WebBanHang.Common\bin\Debug\WebBanHang.Common.pdb
+F:\WebBanHang\WebBanHang\WebBanHang.Common\obj\Debug\WebBanHang.Common.csprojAssemblyReference.cache
+F:\WebBanHang\WebBanHang\WebBanHang.Common\obj\Debug\WebBanHang.Common.csproj.CoreCompileInputs.cache
+F:\WebBanHang\WebBanHang\WebBanHang.Common\obj\Debug\WebBanHang.Common.dll
+F:\WebBanHang\WebBanHang\WebBanHang.Common\obj\Debug\WebBanHang.Common.pdb
